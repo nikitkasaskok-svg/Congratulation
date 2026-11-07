@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>С днём рождения, Ольга!</title>
+<style>
+*{box-sizing:border-box}
+:root{--ink:#443052;--violet:#8060bd;--pink:#e98caf;--gold:#d9a84e}
+body{margin:0;min-height:100vh;font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:radial-gradient(circle at 15% 15%,#fff 0 2px,transparent 3px),linear-gradient(145deg,#fff1f5,#f0eaff 55%,#fff7e7);background-size:34px 34px,auto}
+header{text-align:center;padding:66px 20px 30px}
+.eyebrow{font:700 .78rem system-ui;letter-spacing:.22em;text-transform:uppercase;color:#a56c91}
+h1{font-size:clamp(3rem,9vw,5.8rem);line-height:1;margin:18px 0;color:#805ab4;text-shadow:0 4px 0 #fff}
+.subtitle{max-width:620px;margin:20px auto;font:1.15rem/1.7 system-ui;color:#685675}
+main{max-width:760px;margin:0 auto;padding:0 18px 65px}
+.panel{background:#ffffffd9;border:1px solid #fff;border-radius:28px;padding:clamp(22px,5vw,38px);margin:18px 0;box-shadow:0 18px 50px #65457a16;text-align:center}
+h2{color:#805ab4;font-size:1.65rem;margin:0 0 15px}
+.message{font:1.12rem/1.9 system-ui}
+.instruction{font:1rem/1.7 system-ui;color:#725c80}
+.key-area{position:relative;height:105px;margin:15px auto 0;max-width:420px}
+.key{position:absolute;left:67%;top:16px;border:0;background:transparent;padding:8px;font-size:2rem;cursor:pointer;opacity:.72;filter:drop-shadow(0 3px 4px #9b77b455);transition:transform .2s,opacity .2s}
+.key:hover{transform:rotate(-18deg) scale(1.2);opacity:1}
+.key:focus-visible{outline:2px solid #805ab4;border-radius:12px}
+.locked{margin-top:8px;padding:16px;border-radius:18px;background:#f8f2ff;color:#806d91;font:700 1rem system-ui}
+.wish{display:none;margin-top:18px;padding:22px;border-radius:18px;background:linear-gradient(135deg,#fff1f6,#f1eaff);font:1.15rem/1.9 system-ui;animation:appear .7s ease}
+.wish.show{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+footer{text-align:center;padding:10px 20px 35px;color:#8a7897;font: .95rem system-ui}
+.sparkles{font-size:1.7rem;letter-spacing:.5em;color:#c18bb0}
+@media(max-width:480px){header{padding-top:48px}.key{left:62%}}
+</style>
+</head>
+<body>
+<header>
+  <div class="sparkles">✦ ✧ ✦</div>
+  <div class="eyebrow">Сегодня особенный день</div>
+  <h1>С днём рождения,<br>Ольга!</h1>
+  <p class="subtitle">Пусть этот день будет наполнен теплом, улыбками и маленькими чудесами. Для тебя приготовлен особенный сюрприз…</p>
+  <div class="sparkles">♡ ✧ ♡</div>
+</header>
+<main>
+  <section class="panel">
+    <h2>💐 Дорогая Ольга!</h2>
+    <p class="message">От всей души желаем тебе счастья, крепкого здоровья, душевного спокойствия и вдохновения. Пусть каждый день приносит хорошие новости, рядом будут дорогие сердцу люди, а любые мечты постепенно становятся реальностью. Пусть в жизни будет побольше поводов смеяться, путешествовать, радоваться и чувствовать себя любимой!</p>
+  </section>
+  <section class="panel">
+    <h2>🗝️ Маленький секрет</h2>
+    <p class="instruction">На этой странице спрятан маленький ключик. Найди его и нажми на него, чтобы разблокировать особенное пожелание!</p>
+    <div class="key-area" aria-label="Попробуй найти спрятанный ключ">
+      <button class="key" id="key" aria-label="Найденный ключик" title="Нажми на ключик">🗝️</button>
+    </div>
+    <div class="locked" id="locked">🔒 Пожелание пока заперто…</div>
+    <div class="wish" id="wish" aria-live="polite">
+      <strong>✨ Сюрприз для тебя, Ольга! ✨</strong><br>
+      Пусть впереди тебя ждёт год, полный приятных встреч, счастливых моментов и исполнения желаний. Желаем, чтобы удача находила тебя даже в самых неожиданных местах, а каждый новый день дарил причину улыбнуться. С праздником! 💖🎂
+    </div>
+  </section>
+</main>
+<footer>С теплом и самыми добрыми пожеланиями · Для Ольги 💗</footer>
+<script>
+document.getElementById('key').addEventListener('click',function(){
+  document.getElementById('locked').style.display='none';
+  document.getElementById('wish').classList.add('show');
+  this.style.display='none';
+});
+</script>
+</body>
+</html>
